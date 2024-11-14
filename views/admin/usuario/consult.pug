@@ -1,0 +1,14 @@
+extends ../indexAdmin
+
+block userContent
+    .container-fluid.p-5
+        h1.text-center #{texto} Usuario por Correo
+        form(action=`/admin/usuarios/${action}` method="POST") 
+            .form-group
+                label.form-label(for="correo" ) Correo:
+                input.form-control(type="text" name="correo" id="correo" required)
+
+            button.btn.btn-primary(type="submit") #{texto} Usuario
+
+    script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js")
+    script(src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js")

@@ -1,0 +1,30 @@
+extends layout 
+
+block content
+    .container-fluid.p-5
+        h1.text-center Formulario de Registro de Comprador
+        form(action="/registro" method="POST")
+            .form-group
+                label.form-label(for="nombre" ) Nombre:
+                input.form-control(type="text" name="nombre" id="nombre" required)
+
+            .form-group
+                label.form-label(for="apellido" ) Apellido:
+                input.form-control(type="text" name="apellido" id="apellido" required)
+
+            .form-group
+                label.form-label(for="correo" ) Correo:
+                input.form-control(type="text" name="correo" id="correo" required)
+            
+            .form-group
+                label.form-label(for="telefono" ) Teléfono:
+                input.form-control(type="text" name="telefono" id="telefono" required)
+
+            .form-group
+                label.form-label(for="contrasena" ) Contraseña:
+                input.form-control(type="text" name="contrasena" id="contrasena" required)
+        
+            button.btn.btn-primary(type="submit") Registrar Usuario
+
+    script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js")
+    script(src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js")

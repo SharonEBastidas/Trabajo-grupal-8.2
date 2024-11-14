@@ -1,0 +1,16 @@
+extends layout 
+
+block content
+    .container-fluid.p-5
+        h1.text-center Iniciar Sesión
+        form(action="/login" method="POST")
+            .form-group
+                label(for="correo") Correo Electrónico:
+                input.form-control(type="email" name="correo" required)
+
+            .form-group
+                label(for="contrasena") Contraseña:
+                input.form-control(type="password" name="contrasena" required)
+
+            button.btn.btn-primary(type="submit") Iniciar Sesión
+        

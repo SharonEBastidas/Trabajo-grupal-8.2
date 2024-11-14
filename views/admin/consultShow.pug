@@ -1,0 +1,21 @@
+extends indexAdmin
+
+block userContent
+    .container-fluid.p-5
+        h1.text-center Mostrar #{ruta}
+        table.table.table-striped.mt-4
+            thead
+                tr
+                    each columna in columnas
+                        th #{columna}
+            tbody
+                tr
+                    each columna in columnas
+                        if columna != 'Imagen'
+                            td #{datos.dataValues[columna.toLowerCase()]}
+                    if datos.imagen != null
+                        td
+                            img(src=`/${datos.imagen}`, alt="Producto", width="50", height="auto")
+
+    script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js")
+    script(src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js")

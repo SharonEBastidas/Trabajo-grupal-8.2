@@ -1,0 +1,17 @@
+extends ../indexAdmin
+
+block userContent
+    .container-fluid.p-5
+        h1.text-center #{texto} Categoria
+        form(action=`/admin/categorias/${action}` method="POST") 
+            .form-group
+                label.form-label(for="categoria" ) Categoria:
+                select.form-control(name="categoria" id="categoria" required)
+                    option(value="") Selecciona una Categoria
+                    each categoria in categorias
+                        option(value=categoria.id) #{categoria.nombre}
+
+            button.btn.btn-primary(type="submit") #{texto} Categoria
+
+    script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js")
+    script(src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js")

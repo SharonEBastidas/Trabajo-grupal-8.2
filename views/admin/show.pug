@@ -1,0 +1,30 @@
+extends indexAdmin
+
+block userContent
+    .container-fluid.p-5
+        h1.text-center Mostrar #{ruta}
+        if datos.length !== 0
+            table.table.table-striped.mt-4
+                thead
+                    tr
+                        each columna in columnas
+                            th #{columna}
+                        th Acción
+                tbody
+                    each dato in datos
+                        tr
+                            each columna in columnas 
+                                if columna != 'Imagen'
+                                    td #{dato[columna.toLowerCase()]}
+                            if dato.imagen != null
+                                td
+                                    img(src=`/${dato.imagen}`, alt="Producto", width="50", height="auto")
+                            td
+                                form(action=`/admin/${url}/${dato.id}/edit` method="POST")
+                                    button.btn.btn-warning(type="submit") Editar
+                                form(action=`/admin/${url}/${dato.id}/delete` method="POST")
+                                    button.btn.btn-danger(type="submit") Eliminar
+        else
+            p No hay #{ruta} en la tabla
+    script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js")
+    script(src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js")

@@ -1,0 +1,33 @@
+doctype html
+html
+    head
+        title Crear Transacción
+        link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+        script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js")
+    body
+        .container.justify-content-center
+            h1.text-center.m-4 Confirma tu orden de compra
+            .container.border.rounded.p-4.m-2
+                p.font-weight-bold Orden de Compra: 
+                    span.text-muted #{buyOrder}
+                p.font-weight-bold Session ID: 
+                    span.text-muted #{sessionId}
+                p.font-weight-bold Monto: $#{amount}
+                table.table.table-striped.table-bordered.mt-2 
+                    tr 
+                        th Nombre 
+                        th Precio 
+                        th Cantidad
+                    each producto in productos
+                        tr 
+                            td #{producto.nombre}
+                            td #{producto.precio}
+                            td #{producto.cantidad}
+
+                form(action=url method="POST")
+                    input(type="hidden" name="token_ws" value=token)
+                    button.btn.btn-success(type="submit") Pagar
+        
+        script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js")
+        script(src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js")
+        

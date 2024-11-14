@@ -1,0 +1,18 @@
+extends ../indexAdmin
+
+block userContent
+    .container-fluid.p-5
+        h1.text-center Formulario de Registro de Categorias
+        form(action="/admin/categorias/add" method="POST") 
+            .form-group
+                label.form-label(for="nombre" ) Nombre:
+                input.form-control(type="text" name="nombre" id="nombre" required)
+
+            .form-group
+                label.form-label(for="descripcion" ) Descripción:
+                input.form-control(type="text" name="descripcion" id="descripcion" required)
+        
+            button.btn.btn-primary(type="submit") Registrar Categoria
+
+    script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js")
+    script(src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js")

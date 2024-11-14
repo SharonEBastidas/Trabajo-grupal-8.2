@@ -1,0 +1,30 @@
+extends ../indexAdmin
+
+block userContent
+    .container-fluid.p-5
+        h1.text-center Formulario de Edición de Producto 
+        form(action=`/admin/productos/edit/${producto.id}` method="POST") 
+            .form-group
+                label.form-label(for="nombre" ) Nombre:
+                input.form-control(type="text" name="nombre" id="nombre" value=`${producto.nombre}` required)
+
+            .form-group
+                label.form-label(for="descripcion" ) Descripción:
+                input.form-control(type="text" name="descripcion" id="descripcion" value=`${producto.descripcion}` required)
+
+            .form-group
+                label.form-label(for="precio" ) Precio:
+                input.form-control(type="number" step="0.01" name="precio" id="precio" value=`${producto.precio}` required)
+            
+            .form-group
+                label.form-label(for="inventario" ) Inventario:
+                input.form-control(type="number" name="inventario" id="inventario" value=`${producto.inventario}` required)
+
+            .form-group
+                label.form-label(for="categoria" ) Categoria:
+                input.form-control(type="text" name="categoria" id="categoria" value=`${producto.categoria}` required)
+
+            button.btn.btn-primary(type="submit") Editar Producto
+
+    script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js")
+    script(src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js")

@@ -1,0 +1,24 @@
+doctype html
+html
+    head
+        title Confirmar Transacción
+        link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+        script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js")
+    body
+        .container.justify-content-center
+            h1.text-center.m-4 Resultado de la Transacción
+            .container.border.rounded.p-4.m-2
+                if commitResponse
+                    p.font-weight-bold Estado: 
+                        span(class=commitResponse.status === 'AUTHORIZED' ? 'text-success' : 'text-danger') #{commitResponse.status}
+                    p.font-weight-bold Orden de Compra: 
+                        span.text-muted #{commitResponse.buy_order}
+                    p.font-weight-bold Session ID: 
+                        span.text-muted #{commitResponse.session_id}
+                    p.font-weight-bold Monto: 
+                        span.text-muted $#{commitResponse.amount}
+                else
+                    p No se pudo confirmar la transacción.
+        
+        script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js")
+        script(src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js")
